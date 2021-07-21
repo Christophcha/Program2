@@ -125,13 +125,20 @@ public class Figures {
 	}
 	
 	public static void printX() {
-	//I think this will work for an X, print if else
-		for(int i = 1; i <= size; i++) {
-			for(int j = 1; j <= size; j++) {
-				
-			
-			
+		
+		for(int i = 0;i <= size; i++){
+			for(int j = 1;j <= size; j++){
+				if(j==i){
+					System.out.print("2");
+				}
+				else if(j == size-(i-1)){
+					System.out.print("1");
+				}
+				else{
+					System.out.print(" ");
+				}
 			}
+			System.out.println();
 		}
-}
+	}
 }
