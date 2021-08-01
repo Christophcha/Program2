@@ -5,6 +5,7 @@
  * Programming Assignment 2 - Figures
  */
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Figures {
@@ -19,55 +20,66 @@ public class Figures {
 
 		Scanner scan = new Scanner(System.in);
 
-		Figures.size = scan.nextInt();
+		try {
 
-		// if user input is not an odd number
-		while (Figures.size % 2 == 0) {
-			System.out.println("Invalid figure size - must be an odd number ");
-			System.out.println("");
-			System.out.print("Renter the size of the figure: ");
 			Figures.size = scan.nextInt();
-		}
 
-		// Prints out a menu to choose from
-		System.out.println(" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
-		System.out.print("Please select an option : ");
-
-		// Scans next user input to choose a menu option
-		figure = scan.nextInt();
-		System.out.println("");
-
-		// Pull correct method into main once they choose an option from menu, then reprints menu
-		while (true) {
-			if (figure == 1) {
-				Figures.printBox();
-
-				System.out.println(" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
-				System.out.print("Please select an option : ");
+			// if user input is not an odd number
+			while (Figures.size % 2 == 0) {
+				System.out.println("Invalid figure size - must be an odd number ");
+				System.out.println("");
+				System.out.print("Renter the size of the figure: ");
+				Figures.size = scan.nextInt();
 			}
-			if (figure == 2) {
-				Figures.printDiamond();
 
-				System.out.println(" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
-				System.out.print("Please select an option : ");
-			}
-			if (figure == 3) {
-				Figures.printX();
+			// Prints out a menu to choose from
+			System.out.println(" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
+			System.out.print("Please select an option : ");
 
-				System.out.println(" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
-				System.out.print("Please select an option : ");
-			}
-			if (figure == 4) {
-				scan.close();
-				System.out.print("Good bye!");
-				System.exit(0);
-			}
-			if (figure > 4 || figure < 1) {
-				System.out.print("Please select a number from the given menu: ");
-			}
+			// Scans next user input to choose a menu option
 			figure = scan.nextInt();
 			System.out.println("");
 
+			// Pull correct method into main once they choose an option from menu, then
+			// reprints menu
+			while (true) {
+				if (figure == 1) {
+					Figures.printBox();
+
+					System.out.println(
+							" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
+					System.out.print("Please select an option : ");
+				}
+				if (figure == 2) {
+					Figures.printDiamond();
+
+					System.out.println(
+							" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
+					System.out.print("Please select an option : ");
+				}
+				if (figure == 3) {
+					Figures.printX();
+
+					System.out.println(
+							" \n Menu: \n 1. Print Box \n 2. Print Diamond \n 3. Print X \n 4. Quit Program \n");
+					System.out.print("Please select an option : ");
+				}
+				if (figure == 4) {
+					scan.close();
+					System.out.print("Good bye!");
+					System.exit(0);
+				}
+				if (figure > 4 || figure < 1) {
+					System.out.print("Please select a number from the given menu: ");
+				}
+				figure = scan.nextInt();
+				System.out.println("");
+
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input, please try again and enter a number");
+		} catch (Exception e) {
+			System.out.println("Invalid input");
 		}
 
 	}
