@@ -15,6 +15,10 @@ public class Figures {
 	public static void main(String[] args) {
 
 		int figure;
+		
+		System.out.println("Programming Fundamentals");
+		System.out.println("NAME: Christopher Chakchay");
+		System.out.println("PROGRAMMING ASSIGNMENT 2 \n");
 
 		System.out.print("Enter the size of the figure (odd number): "); // Prompts user for input
 
